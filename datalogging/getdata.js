@@ -1,6 +1,7 @@
 var SerialPort = require('serialport');
 var port = new SerialPort('COM3', {
-  baudRate: 151200
+  baudRate: 151200,
+  dataBits: 8
 }, function (err) {
   if (err) {
     return console.log('Error: ', err.message);

@@ -1,116 +1,31 @@
 <head>
   <!-- Plotly.js -->
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="./abIOpressures.js"></script>
 </head>
 
-<p>
-    Here's a simple Plotly plot -
-    <a href="https://bit.ly/1Or9igj">plotly.js documentation</a>
-</p>
-
 <body>
-<div id="tester" style="width:90%;height:250px;"></div>
-<script>
+  <p>Test type</p>
+  
+  <div>
+    <p>A/B I/O pressures</p>
+    <input type='file' accept='text/plain' onchange='openFileType1(event)' value='text'><br>
+  </div>
+    <p>Manifold Temps</p>
+    <input type='file' accept='text/plain' onchange='openFileType2(event)' value='text'><br>
+  <div>
+    <p>Therm+Xducer</p>
+    <input type='file' accept='text/plain' onchange='openFileType3(event)' value='text'><br>
 
-var openFile = function(event) {
-        var input = event.target;
+  </div>
+   
+   
+<div id="aside" style="width:90%;height:1000px;"></div>
+<div id="bside" style="width:90%;height:1000px;"></div>
+<div id="idle" style="width:90%;height:1000px;"></div>
 
-        var reader = new FileReader();
-        reader.onload = function(){
-          var text = reader.result;
-          var node = document.getElementById('output');
-          node.innerText = text;
-          var parsed = parseData(text);
-
-          var timeAxis = [];
-          var AOut = parsed.map( x => x[0])
-          var AIn = parsed.map( x => x[1])
-          var BOut = parsed.map( x => x[2])
-          var BIn = parsed.map( x => x[3])
-          var IdleA = parsed.map( x => x[4])
-          var IdleB = parsed.map( x => x[5])
-          for(var i = 0; i < parsed.length; i++){
-            timeAxis.push(2*(i+1))
-          }
-          console.log(AOut)
-          var trace1 = {
-            x: timeAxis,
-            y: AOut,
-            type: 'scatter',
-            name: 'A Output'
-          };
-
-          var trace2 = {
-            x: timeAxis,
-            y: AIn,
-            type: 'scatter',
-            name: 'A Input'
-          };
-
-          var trace3 = {
-            x: timeAxis,
-            y: BOut,
-            type: 'scatter',
-            name: 'B Output'
-          };
-
-          var trace4 = {
-            x: timeAxis,
-            y: BIn,
-            type: 'scatter',
-            name: 'B Input'
-          };
-
-          var trace5 = {
-            x: timeAxis,
-            y: IdleA,
-            type: 'scatter',
-            name: 'Idle A Pressure'
-          };
-
-          var trace6 = {
-            x: timeAxis,
-            y: IdleB,
-            type: 'scatter',
-            name: 'Idle B Pressure'
-          };
-
-          var data = [trace1, trace2, trace3, trace4, trace5, trace6];
-
-          var layout = {
-            title: 'Pressures Chart',
-            width: 1000,
-            height: 800
-          }
-
-          Plotly.newPlot('tester', data, layout);
-        };
-        reader.readAsText(input.files[0]);
-      };
-
-
-// var fileContents = 'abpressure.txt'.toURL().text;
-var parseData = (data) => {
-  var splitlines = data.split('\n');
-  var parsed = splitlines.map(x => x.split(','))
-  return parsed;
-}
-
-
-var dataToPlot = function(data) {
-  var xAxis = [];
-  var yAxis = data.map(value => value[0])
-
-  var layout = go.layout
-  for(var i = 0; i < data.length; i++) {
-    xAxis.push(2 + i*2);
-  }
-
-}
-
-</script>
-<input type='file' accept='text/plain' onchange='openFile(event)'><br>
     <div id='output'>
     ...
     </div>
 </body>
+-
