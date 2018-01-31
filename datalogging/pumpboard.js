@@ -101,22 +101,9 @@ var openFileType2 = function(event) {
         reader.readAsText(input.files[0]);
       };
 
-
-// var fileContents = 'abpressure.txt'.toURL().text;
+//split text file into array
 var parseData = (data) => {
   var splitlines = data.split('\n');
   var parsed = splitlines.map(x => x.split(','))
   return parsed;
-}
-
-
-var dataToPlot = function(data) {
-  var xAxis = [];
-  var yAxis = data.map(value => value[0])
-
-  var layout = go.layout
-  for(var i = 0; i < data.length; i++) {
-    xAxis.push(2 + i*2);
-  }
-
 }
