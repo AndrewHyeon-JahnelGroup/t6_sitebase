@@ -85,7 +85,7 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'FrontPage',
   data () {
     return {
       msg: 'Welcome to Team 6, Inc.'

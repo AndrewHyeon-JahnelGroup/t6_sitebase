@@ -2,8 +2,8 @@
   <div>
     <p>Completed Tasks: {{todos.filter(todo => {return todo.done === true}).length}}</p>
     <p>Pending Tasks: {{todos.filter(todo => {return todo.done === false}).length}}</p>
-    
-    <div class='ui centered card' v-for"todo in todos">
+
+    <div class='ui centered card' v-for="todo in todos">
       <div class='content'>
         <div class='header'>
           {{ todo.title }}
@@ -26,7 +26,7 @@
     </div>
   </div>
 </template>
- 
+
 <script type = "text/javascript" >
 
 export default {

@@ -1,19 +1,19 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <hello-world />
-    <todo-list v-bind:todos="todos"> </todo-list>
+    <front-page />
+    <todo-list v-bind:todos='todos'> </todo-list>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import FrontPage from './components/FrontPage'
 import TodoList from './components/toDoList'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
+    FrontPage,
     TodoList
   },
   data() {
@@ -34,7 +34,7 @@ export default {
         title: 'Todo D',
         project: 'Project D',
         done: false,
-      }],
+      }]
     };
   },
 };
