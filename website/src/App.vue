@@ -2,7 +2,6 @@
   <div id="app">
     <img src="./assets/logo.png">
     <front-page />
-    <todo-list v-bind:todos='todos'> </todo-list>
   </div>
 </template>
 
