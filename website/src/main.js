@@ -11,7 +11,7 @@ Vue.use(VueRouter);
 
 //import components
 import FrontPage from './components/FrontPage'
-
+import AboutPage from './components/AboutPage'
 Vue.config.productionTip = false
 
 //routes
@@ -20,10 +20,10 @@ const routes = [
     path: '/',
     component: FrontPage
   },
-  // {
-  //   path: '/about',
-  //   component: AboutPage
-  // }
+  {
+    path: '/about',
+    component: AboutPage
+  }
 ]
 
 const router = new VueRouter({
@@ -34,6 +34,7 @@ const router = new VueRouter({
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  router,
   components: { App },
   template: '<App/>'
 })

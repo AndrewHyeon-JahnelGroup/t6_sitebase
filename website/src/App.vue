@@ -1,10 +1,11 @@
 <template>
   <div id="app">
+    <nav-bar />
     <img id="logo" src="./assets/logo.jpg">
     <div>
       <img id="stock"src="./assets/stock.jpg">
     </div>  
-    <front-page />
+    <router-view />
   </div>
 </template>
 
@@ -12,13 +13,15 @@
 import FrontPage from './components/FrontPage'
 import TodoList from './components/toDoList'
 import NavBar from './components/NavBar'
+import AboutPage from './components/AboutPage'
 
 export default {
   name: 'App',
   components: {
     FrontPage,
     TodoList,
-    NavBar
+    NavBar,
+    AboutPage
   },
   data() {
     return {

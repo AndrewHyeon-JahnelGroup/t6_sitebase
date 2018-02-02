@@ -13,7 +13,7 @@ var openFileType1 = function(event) {
     for(var i = 0; i < parsed.length; i++){
       timeAxis.push(2*(i+1))
     }
-    
+
     //y axis data
     var AOut = parsed.map( x => x[0])
     var AIn = parsed.map( x => x[1])
@@ -21,7 +21,7 @@ var openFileType1 = function(event) {
     var BIn = parsed.map( x => x[3])
     var IdleA = parsed.map( x => x[4])
     var IdleB = parsed.map( x => x[5])
-    
+
     //traces
     var trace1 = {
       x: timeAxis,
@@ -80,7 +80,7 @@ var openFileType1 = function(event) {
       width: '100%',
       height: '80%'
     }
-    
+
     var layoutB = {
       title: 'B-side I/O Pressures Chart',
       xaxis: {
@@ -112,10 +112,76 @@ var openFileType1 = function(event) {
   reader.readAsText(input.files[0]);
 };
 
+var openFileType2 = function(event) {
+  var input = event.target;
+
+  var reader = new FileReader();
+  reader.onload = function(){
+    var text = reader.result;
+    var node = document.getElementById('output');
+    node.innerText = text;
+    var parsed = parseData2(text);
+
+    // x axis
+    var timeAxis = [];
+    for(var i = 0; i < parsed.length; i++){
+      timeAxis.push((i+1))
+    }
+
+    //y axis data
+    var BOut = parsed
+
+
+    //traces
+    var trace3 = {
+      x: timeAxis,
+      y: BOut,
+      type: 'scatter',
+      name: 'B Output'
+    };
+
+
+
+
+    var dataB = [trace3]
+
+
+    var layoutB = {
+      title: 'B-side I/O Pressures Chart',
+      xaxis: {
+        title: 'Time (s)'
+      },
+      yaxis: {
+        title: 'Pressure (psi)'
+      },
+      width: 1000,
+      height: 800
+    }
+
+    //plotting graphs
+
+    Plotly.newPlot('bside', dataB, layoutB);
+
+  };
+  reader.readAsText(input.files[0]);
+};
 
 // var fileContents = 'abpressure.txt'.toURL().text;
 var parseData = (data) => {
   var splitlines = data.split('\n');
   var parsed = splitlines.map(x => x.split(','))
+  return parsed;
+}
+var parseData2 = (data) => {
+  var splitlines = data.split('\n');
+  var output = [];
+  for(var i = 0; i < splitlines.length; i++) {
+    if(splitlines[i].includes('B Xducer')){
+      output.push(splitlines[i])
+    }
+  }
+  var parsed = output.map(x => x.slice(12, -5))
+  parsed = parsed.map(x => parseInt(x))
+  console.log(parsed)
   return parsed;
 }
