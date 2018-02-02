@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <img src="./assets/logo.jpg">
     <front-page />
   </div>
 </template>
@@ -8,12 +8,14 @@
 <script>
 import FrontPage from './components/FrontPage'
 import TodoList from './components/toDoList'
+import NavBar from './components/NavBar'
 
 export default {
   name: 'App',
   components: {
     FrontPage,
-    TodoList
+    TodoList,
+    NavBar
   },
   data() {
     return {
@@ -47,6 +49,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
