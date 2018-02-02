@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.jpg">
+    <img id="logo" src="./assets/logo.jpg">
+    <div>
+      <img id="stock"src="./assets/stock.jpg">
+    </div>  
     <front-page />
   </div>
 </template>
@@ -49,5 +52,12 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+
+#logo {
+  height: 100px;
+}
+#stock {
+  width: 100%;
 }
 </style>

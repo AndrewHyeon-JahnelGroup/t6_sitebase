@@ -1,5 +1,5 @@
 <template>
-  <div class="hello">
+  <div class="frontpage">
     <h1>{{ msg }}</h1>
     <p>{{ content }}</p>
     <div class = "loadercontainer">
@@ -25,6 +25,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.frontpage {
+  padding-top: 20px;
+}
 .loadercontainer {
   padding: 20px;
   text-align: center;
