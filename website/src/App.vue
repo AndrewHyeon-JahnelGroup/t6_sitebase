@@ -3,7 +3,7 @@
     <nav-bar />
     <img id="logo" src="./assets/logo.jpg">
     <div>
-      <!-- <img id="stock"src="./assets/stock.jpg"> -->
+      <img id="stock"src="./assets/stock.jpg">
     </div>
     <router-view />
   </div>
