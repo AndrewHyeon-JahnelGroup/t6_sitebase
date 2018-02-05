@@ -1,35 +1,12 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark indigo">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#"><router-link to="/">Home</router-link><span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"><router-link to="/about">About</router-link></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
-                    aria-expanded="false">
-                Dropdown link
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                </div>
-            </li>
-        </ul>
-    </div>
-</nav>
+  <md-tabs md-sync-route>
+      <md-tab id="tab-home" md-label="Home" to="/"></md-tab>
+      <md-tab id="tab-pages" md-label="Pages" to="/about"></md-tab>
+      <md-tab id="tab-posts" md-label="Posts" to="/team"></md-tab>
+      <md-tab id="tab-settings" md-label="Settings" to="/contact"></md-tab>
+      <md-tab id="tab-disabled" md-label="Disabled" md-disabled></md-tab>
+    </md-tabs>
+  </div>
 </template>
 
 <script>

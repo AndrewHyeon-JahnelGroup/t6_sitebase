@@ -1,3 +1,14 @@
+/* data values
+
+  data from board bottom board on stand
+  a pump out, apump in, bpump out, b pump in, idle pressure a, idle pressure b
+
+  data from board on pumpstand
+  A thermistor, B thermistor, A transducer, B transducer, Solvent transducer
+
+*/
+
+
 var openFileType1 = function(event) {
   var input = event.target;
 

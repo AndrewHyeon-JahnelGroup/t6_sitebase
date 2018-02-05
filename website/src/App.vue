@@ -3,8 +3,8 @@
     <nav-bar />
     <img id="logo" src="./assets/logo.jpg">
     <div>
-      <img id="stock"src="./assets/stock.jpg">
-    </div>  
+      <!-- <img id="stock"src="./assets/stock.jpg"> -->
+    </div>
     <router-view />
   </div>
 </template>
@@ -14,6 +14,9 @@ import FrontPage from './components/FrontPage'
 import TodoList from './components/toDoList'
 import NavBar from './components/NavBar'
 import AboutPage from './components/AboutPage'
+import OurTeam from './components/OurTeam'
+import ContactPage from './components/ContactPage'
+import EmailModal from './components/EmailModal'
 
 export default {
   name: 'App',
@@ -21,27 +24,13 @@ export default {
     FrontPage,
     TodoList,
     NavBar,
-    AboutPage
+    AboutPage,
+    OurTeam,
+    ContactPage,
+    EmailModal
   },
   data() {
     return {
-      todos: [{
-        title: 'Todo A',
-        project: 'Project A',
-        done: false,
-      }, {
-        title: 'Todo B',
-        project: 'Project B',
-        done: true,
-      }, {
-        title: 'Todo C',
-        project: 'Project C',
-        done: false,
-      }, {
-        title: 'Todo D',
-        project: 'Project D',
-        done: false,
-      }]
     };
   },
 };
