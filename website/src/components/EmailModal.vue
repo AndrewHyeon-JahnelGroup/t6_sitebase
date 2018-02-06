@@ -1,12 +1,12 @@
 <template>
-  <div class="emailform">
+  <div>
     <md-dialog :md-active.sync="showDialog">
       <div class="contact-modal">
       <md-dialog-title>Contact Us</md-dialog-title>
-        <email-form />
+        <email-form v-bind:mgData="mgData"/>
       <md-dialog-actions>
         <md-button class="md-primary" @click="showDialog = false">Close</md-button>
-        <md-button class="md-primary" @click="showDialog = false">Send</md-button>
+        <md-button id="submit" class="md-primary" @click="showDialog = false">Send</md-button>
       </md-dialog-actions>
     </div>
     </md-dialog>
@@ -22,9 +22,23 @@ export default {
     components: {
       EmailForm
     },
-    data: () => ({
-      showDialog: false
-    })
+    data: () => (
+      {
+      showDialog: false,
+      mgData: {
+        from: '',
+        number:'',
+        subject: '',
+        text: ''
+      }
+
+    }),
+    methods: {
+      sendEmail: function sendEmail() {
+        var submit = document.getElementById('submit');
+
+      }
+    }
   }
 </script>
 
@@ -33,8 +47,6 @@ export default {
   padding: 20px;
 }
 .md-dialog {
-  background: white;
   width: 30%;
-  opacity: 1;
 }
 </style>

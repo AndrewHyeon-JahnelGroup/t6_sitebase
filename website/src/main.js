@@ -6,10 +6,15 @@ import BootstrapVue from 'bootstrap-vue'
 import App from './App'
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
+import 'vue-material/dist/theme/default.css'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 Vue.use(BootstrapVue);
 Vue.use(VueRouter);
 Vue.use(VueMaterial);
+Vue.use(VueAxios, axios);
+
 
 //import components
 import FrontPage from './components/FrontPage'

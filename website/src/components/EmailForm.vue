@@ -2,19 +2,23 @@
   <div>
     <md-field>
      <label>Name</label>
-     <md-input v-model="name"></md-input>
+     <md-input v-model="mgData.name"></md-input>
     </md-field>
 
     <md-field>
-     <label>Email</label>
-     <md-input v-model="type"></md-input>
+     <label>Your Email</label>
+     <md-input v-model="mgData.from"></md-input>
     </md-field>
 
     <md-field>
      <label>Phone Number</label>
-     <md-input v-model="phoneNumber"></md-input>
+     <md-input v-model="mgData.number"></md-input>
     </md-field>
 
+    <md-field>
+     <label>Subject</label>
+     <md-input v-model="mgData.subject"></md-input>
+    </md-field>
     <md-field>
      <label>Message</label>
      <md-textarea v-model="message"></md-textarea>
@@ -26,11 +30,14 @@
 
 export default {
   name: 'EmailForm',
+  props: ['mgData'],
   data: () => ({
-     name: null,
-     type: null,
-     phoneNumber: null,
-     message: null,
    })
 }
 </script>
+
+<style>
+  .md-input {
+    border: 1px;
+  }
+</style>
