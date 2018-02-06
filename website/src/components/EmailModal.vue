@@ -6,7 +6,7 @@
         <email-form v-bind:mgData="mgData"/>
       <md-dialog-actions>
         <md-button class="md-primary" @click="showDialog = false">Close</md-button>
-        <md-button id="submit" class="md-primary" @click="showDialog = false">Send</md-button>
+        <md-button id="submit" class="md-primary" @click="showDialog = false; sendEmail()">Send</md-button>
       </md-dialog-actions>
     </div>
     </md-dialog>
@@ -29,13 +29,22 @@ export default {
         from: '',
         number:'',
         subject: '',
-        text: ''
+        message: ''
       }
 
     }),
     methods: {
       sendEmail: function sendEmail() {
+        console.log(this.$data.mgData, 'workshere')
         var submit = document.getElementById('submit');
+
+        this.axios.post('http://localhost:4000/send', {
+          body: this.$data.mgData
+        })
+        .then(response => {})
+        .catch(e => {
+          console.log(e, 'error')
+        })
 
       }
     }

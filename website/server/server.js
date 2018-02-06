@@ -6,6 +6,7 @@ app = express();
 app.use(express.static(path.join(__dirname, '../dist')));
 
 app.post('/send', function(req, res) {
+  console.log('hereher')
   //mailgun apik
   var mg = new mailgun({
     apiKey: api_key,
