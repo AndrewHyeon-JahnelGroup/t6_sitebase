@@ -6,11 +6,7 @@ app = express();
 app.use(express.static(path.join(__dirname, '../dist')));
 
 app.post('/send', function(req, res) {
-  //mailgun apikey
-  var api_key = 'key-62efd83a901aa07ef626c1aad9d9ba74';
-  //mailgun domain
-  var domain = 'sandboxc4b09ff7bf6d49738e53add90ddb43a0.mailgun.org';
-
+  //mailgun apik
   var mg = new mailgun({
     apiKey: api_key,
     domain: domain
