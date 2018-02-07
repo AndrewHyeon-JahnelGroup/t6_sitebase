@@ -26,27 +26,27 @@ export default {
       {
       showDialog: false,
       mgData: {
+        name: '',
         from: '',
         number:'',
         subject: '',
-        message: ''
+        text: ''
       }
 
     }),
     methods: {
-      sendEmail: function sendEmail() {
+      sendEmail: async function sendEmail() {
         console.log(this.$data.mgData, 'workshere')
         var submit = document.getElementById('submit');
-
-        this.axios.post('http://localhost:4000/send', {
-          body: this.$data.mgData
-        })
-        .then(response => {})
-        .catch(e => {
+        var data = this.$data.mgData
+        try  {
+          await this.axios.post('http://localhost:4000/send', data)
+        } catch (e) {
           console.log(e, 'error')
-        })
-
+        }
       }
+
+
     }
   }
 </script>

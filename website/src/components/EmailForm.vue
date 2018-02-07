@@ -21,7 +21,7 @@
     </md-field>
     <md-field>
      <label>Message</label>
-     <md-textarea v-model="mgData.message"></md-textarea>
+     <md-textarea v-model="mgData.text"></md-textarea>
     </md-field>
   </div>
 </template>
