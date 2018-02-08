@@ -40,7 +40,7 @@ export default {
         var submit = document.getElementById('submit');
         var data = this.$data.mgData
         try  {
-          await this.axios.post('http://localhost:4000/send', data)
+          await this.axios.post('/send', data)
         } catch (e) {
           console.log(e, 'error')
         }

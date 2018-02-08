@@ -98,7 +98,7 @@ var openFileType1 = function(event) {
         title: 'Time (ms)'
       },
       yaxis: {
-        title: 'Pressure (psi)'
+        title: 'Pressure (mpsi)'
       },
       width: 1000,
       height: 800
@@ -177,6 +177,61 @@ var openFileType2 = function(event) {
   reader.readAsText(input.files[0]);
 };
 
+var openFileType3 = function(event) {
+  var input = event.target;
+
+  var reader = new FileReader();
+  reader.onload = function(){
+    var text = reader.result;
+    var node = document.getElementById('output');
+    node.innerText = text;
+    var parsed = parseData3(text);
+
+    // x axis
+    var timeAxis = [];
+    for(var i = 0; i < parsed.length; i++){
+      timeAxis.push((i+1))
+    }
+
+    //y axis data
+    var BOut = parsed
+
+
+    //traces
+    var trace3 = {
+      x: timeAxis,
+      y: BOut,
+      type: 'scatter',
+      name: 'B Output'
+    };
+
+
+
+
+    var dataB = [trace3]
+
+
+    var layoutB = {
+      title: 'B-side Inlet Pressures Chart',
+      xaxis: {
+        title: 'Time (s)'
+      },
+      yaxis: {
+        title: 'Pressure (psi)'
+      },
+      width: 1000,
+      height: 800
+    }
+
+    //plotting graphs
+
+    Plotly.newPlot('bside', dataB, layoutB);
+
+  };
+  reader.readAsText(input.files[0]);
+};
+
+
 // var fileContents = 'abpressure.txt'.toURL().text;
 var parseData = (data) => {
   var splitlines = data.split('\n');
@@ -191,7 +246,22 @@ var parseData2 = (data) => {
       output.push(splitlines[i])
     }
   }
-  var parsed = output.map(x => x.slice(12, -5))
+  var parsed = output.map(x => x.slice(30, -5))
+  parsed = parsed.map(x => parseInt(x))
+  console.log(parsed)
+  return parsed;
+}
+
+var parseData3 = (data) => {
+  var splitlines = data.split('\n');
+  var output = [];
+  for(var i = 0; i < splitlines.length; i++) {
+    if(splitlines[i].includes('B Inlet Pressure')){
+      output.push(splitlines[i])
+    }
+  }
+
+  var parsed = output.map(x => x.slice(19, -16))
   parsed = parsed.map(x => parseInt(x))
   console.log(parsed)
   return parsed;
