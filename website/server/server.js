@@ -26,7 +26,7 @@ app.post('/send', function(req, res) {
   var mgdata = req.body;
   mgdata.sender = from_who
   mgdata.to = 'ahyeon@teamsix.us, gbertram@teamsix.us, kroehrich@teamsix.us';
-  mgdata.from = mgdata.name + ' <' + mgdata.from + '>'
+  mgdata.from = mgdata.name + ' <' + mgdata.from + ', ' + mgdata.number + '>'
   delete mgdata.name
   console.log(mgdata)
 

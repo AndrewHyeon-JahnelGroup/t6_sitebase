@@ -1,11 +1,19 @@
 <template>
-  <div id="app">
-    <nav-bar />
-    <img id="logo" src="./assets/logo.jpg">
-    <div>
-      <img id="stock"src="./assets/stock.jpg">
+  <div>
+    <div class="row" id="app">
+      <div class="md-col-1 logo">
+        <img id="logo" src="./assets/logo.jpg">
+      </div>
+      <div class="md-col-6 nav">
+        <nav-bar />
+      </div>
+      <div>
+        <img id="stock"src="./assets/stock.jpg">
+      </div>
     </div>
-    <router-view />
+    <div class="row">
+      <router-view />
+    </div>
   </div>
 </template>
 
@@ -51,5 +59,15 @@ export default {
 }
 #stock {
   width: 100%;
+}
+
+.logo {
+  margin-left: 20px;
+  padding: 10px;
+  background-color: white
+}
+
+.nav {
+  vertical-align: bottom
 }
 </style>

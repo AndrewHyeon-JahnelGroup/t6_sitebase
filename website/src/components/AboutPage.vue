@@ -1,7 +1,13 @@
 <template>
-  <div class="frontpage">
-    <h1>{{ msg }}</h1>
-    <p>{{ content }}</p>
+  <div class="frontpage justify-content-between">
+    <div class="row justify-content-between">
+      <h1 class="abt col-md-12">{{ msg }}</h1>
+    </div>
+    <div class="row">
+      <div class="col-md-12" id="about">
+        <p>{{ content }}</p>
+      </div>
+    </div>
     <div class = "loadercontainer">
     <div class="loader">
       <div id="largeBox"></div>
@@ -22,3 +28,17 @@ export default {
   }
 }
 </script>
+
+<style>
+.abt {
+  text-align: center
+}
+#about {
+  width: 80%;
+  text-align: center;
+}
+
+.frontpage {
+  text-align: center
+}
+</style>
