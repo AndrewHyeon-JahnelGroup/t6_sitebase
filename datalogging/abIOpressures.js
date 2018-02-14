@@ -131,39 +131,77 @@ var openFileType2 = function(event) {
     var text = reader.result;
     var node = document.getElementById('output');
     node.innerText = text;
-    var parsed = parseData2(text);
+    var parsed = parseData(text);
 
     // x axis
     var timeAxis = [];
     for(var i = 0; i < parsed.length; i++){
-      timeAxis.push((i+1))
+      timeAxis.push(10*(i+1))
     }
 
     //y axis data
-    var BOut = parsed
+    var ATherm = parsed.map( x => x[0])
+    var BTherm = parsed.map( x => x[1])
+    var AXducer = parsed.map( x => x[2]*.05171493257157)
+    var BXducer = parsed.map( x => x[3]*.05171493257157)
+    var SolXducer = parsed.map( x => x[4]*.05171493257157)
+    var SysState = parsed.map( x => x[5])
 
 
     //traces
+    var trace1 = {
+      x: timeAxis,
+      y: ATherm,
+      type: 'scatter',
+      name: 'A Thermistor'
+    };
+    var trace2 = {
+      x: timeAxis,
+      y: BTherm,
+      type: 'scatter',
+      name: 'B Thermistor'
+    };
     var trace3 = {
       x: timeAxis,
-      y: BOut,
+      y: AXducer,
       type: 'scatter',
-      name: 'B Output'
+      name: 'A Transducer'
+    };
+    var trace4 = {
+      x: timeAxis,
+      y: BXducer,
+      type: 'scatter',
+      name: 'B Transducer'
+    };
+    var trace5 = {
+      x: timeAxis,
+      y: SolXducer,
+      type: 'scatter',
+      name: 'Solvent Transducer'
     };
 
+    var dataA = [trace1, trace2]
+    var dataB = [trace3, trace4, trace5]
 
-
-
-    var dataB = [trace3]
-
-
-    var layoutB = {
-      title: 'B-side I/O Pressures Chart',
+    var layoutA = {
+      title: 'A/B thermistor temps',
       xaxis: {
-        title: 'Time (s)'
+        title: 'Time (ms)'
       },
       yaxis: {
-        title: 'Pressure (psi)'
+        title: 'Temperature (C)'
+      },
+      width: 1000,
+      height: 800
+    }
+
+    var layoutB = {
+      title: 'A/B xducer pressures',
+      xaxis: {
+        title: 'Time (ms)'
+      },
+      yaxis: {
+        title: 'Pressure (torr)'
       },
       width: 1000,
       height: 800
@@ -171,6 +209,7 @@ var openFileType2 = function(event) {
 
     //plotting graphs
 
+    Plotly.newPlot('aside', dataA, layoutA);
     Plotly.newPlot('bside', dataB, layoutB);
 
   };
@@ -236,19 +275,6 @@ var openFileType3 = function(event) {
 var parseData = (data) => {
   var splitlines = data.split('\n');
   var parsed = splitlines.map(x => x.split(','))
-  return parsed;
-}
-var parseData2 = (data) => {
-  var splitlines = data.split('\n');
-  var output = [];
-  for(var i = 0; i < splitlines.length; i++) {
-    if(splitlines[i].includes('B Xducer')){
-      output.push(splitlines[i])
-    }
-  }
-  var parsed = output.map(x => x.slice(30, -5))
-  parsed = parsed.map(x => parseInt(x))
-  console.log(parsed)
   return parsed;
 }
 
