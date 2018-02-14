@@ -27,6 +27,8 @@ export default {
 <style scoped>
 .frontpage {
   padding-top: 20px;
+  text-align: center;
+  margin: 0;
 }
 .loadercontainer {
   padding: 20px;
@@ -34,7 +36,6 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
   margin: 0;
 }
 h1, h2 {

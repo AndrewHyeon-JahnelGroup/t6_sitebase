@@ -16,7 +16,6 @@ var openFileType1 = function(event) {
   reader.onload = function(){
     var text = reader.result;
     var node = document.getElementById('output');
-    node.innerText = text;
     var parsed = parseData(text);
 
     // x axis

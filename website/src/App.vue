@@ -11,7 +11,7 @@
         <img id="stock"src="./assets/stock.jpg">
       </div>
     </div>
-    <div class="row">
+    <div class="container">
       <router-view />
     </div>
   </div>
@@ -25,6 +25,7 @@ import AboutPage from './components/AboutPage'
 import OurTeam from './components/OurTeam'
 import ContactPage from './components/ContactPage'
 import EmailModal from './components/EmailModal'
+import TeamProfile from './components/TeamProfile'
 
 export default {
   name: 'App',
@@ -35,7 +36,8 @@ export default {
     AboutPage,
     OurTeam,
     ContactPage,
-    EmailModal
+    EmailModal,
+    TeamProfile
   },
   data() {
     return {
