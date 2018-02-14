@@ -68,6 +68,7 @@ export default {
 }
 
 .nav {
-  vertical-align: bottom
+  vertical-align: bottom;
+  padding-top: 60px
 }
 </style>

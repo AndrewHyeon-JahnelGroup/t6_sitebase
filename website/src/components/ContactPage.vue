@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <email-modal />
+  <div class="container">
+    <email-modal class="text-center"/>
   </div>
 </template>
 

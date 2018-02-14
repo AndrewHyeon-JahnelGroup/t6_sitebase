@@ -1,17 +1,26 @@
 <template>
-  <div>
-    <md-dialog :md-active.sync="showDialog">
-      <div class="contact-modal">
-      <md-dialog-title>Contact Us</md-dialog-title>
-        <email-form v-bind:mgData="mgData"/>
-      <md-dialog-actions>
-        <md-button class="md-primary" @click="showDialog = false">Close</md-button>
-        <md-button id="submit" class="md-primary" @click="showDialog = false; sendEmail()">Send</md-button>
-      </md-dialog-actions>
+    <div class="row">
+
+      <div class="col-md-4">
+        <md-dialog :md-active.sync="showDialog">
+          <div class="contact-modal">
+            <md-dialog-title>Contact Us</md-dialog-title>
+              <email-form v-bind:mgData="mgData"/>
+            <md-dialog-actions>
+              <md-button class="md-primary" @click="showDialog = false">Close</md-button>
+              <md-button id="submit" class="md-primary" @click="showDialog = false; sendEmail()">Send</md-button>
+            </md-dialog-actions>
+          </div>
+        </md-dialog>
+      </div>
+
+      <div class="col-md-4">
+        <md-button class="md-primary md-raised" @click="showDialog = true">Contact Us</md-button>
+      </div>
+
+      <div class="col-md-4">
+      </div>
     </div>
-    </md-dialog>
-   <md-button class="md-primary md-raised" @click="showDialog = true">Contact Us</md-button>
-  </div>
 </template>
 
 <script>
