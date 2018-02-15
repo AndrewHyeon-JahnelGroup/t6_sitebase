@@ -1,7 +1,7 @@
 <template>
-  <div class="frontpage justify-content-between">
-    <div class="row justify-content-between">
-      <h1 class="abt col-md-12">{{ msg }}</h1>
+  <div class="frontpage">
+    <div class="col">
+      <h1 class="abt">{{ msg }}</h1>
     </div>
     <div class="row">
       <div class="col-md-12" id="about">
@@ -30,6 +30,11 @@ export default {
 </script>
 
 <style>
+.frontpage {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
 .abt {
   text-align: center
 }
@@ -38,7 +43,4 @@ export default {
   text-align: center;
 }
 
-.frontpage {
-  text-align: center
-}
 </style>

@@ -129,7 +129,6 @@ var openFileType2 = function(event) {
   reader.onload = function(){
     var text = reader.result;
     var node = document.getElementById('output');
-    node.innerText = text;
     var parsed = parseData(text);
 
     // x axis
@@ -141,9 +140,9 @@ var openFileType2 = function(event) {
     //y axis data
     var ATherm = parsed.map( x => x[0])
     var BTherm = parsed.map( x => x[1])
-    var AXducer = parsed.map( x => x[2]*.05171493257157)
-    var BXducer = parsed.map( x => x[3]*.05171493257157)
-    var SolXducer = parsed.map( x => x[4]*.05171493257157)
+    var AXducer = parsed.map( x => x[2])
+    var BXducer = parsed.map( x => x[3])
+    var SolXducer = parsed.map( x => x[4])
     var SysState = parsed.map( x => x[5])
 
 
@@ -208,8 +207,8 @@ var openFileType2 = function(event) {
 
     //plotting graphs
 
-    Plotly.newPlot('aside', dataA, layoutA);
-    Plotly.newPlot('bside', dataB, layoutB);
+    Plotly.newPlot('therm', dataA, layoutA);
+    Plotly.newPlot('xducer', dataB, layoutB);
 
   };
   reader.readAsText(input.files[0]);

@@ -1,6 +1,5 @@
 <template>
     <div class="row">
-
       <div class="col-md-4">
         <md-dialog :md-active.sync="showDialog">
           <div class="contact-modal">
@@ -67,4 +66,6 @@ export default {
 .md-dialog {
   width: 30%;
 }
+
+.row{}
 </style>

@@ -9,11 +9,21 @@ import 'vue-material/dist/vue-material.css'
 import 'vue-material/dist/theme/default.css'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import * as VueGoogleMaps from 'vue2-google-maps'
 
 Vue.use(BootstrapVue);
 Vue.use(VueRouter);
 Vue.use(VueMaterial);
 Vue.use(VueAxios, axios);
+Vue.use(VueGoogleMaps, {
+  load: {
+    key:'AIzaSyBRqNNbnn1l7sYScroo53cvKhPqUna1-8g',
+    libraries: 'places', // This is required if you use the Autocomplete plugin
+    // OR: libraries: 'places,drawing'
+    // OR: libraries: 'places,drawing,visualization'
+    // (as you require)
+  }
+})
 
 
 //import components

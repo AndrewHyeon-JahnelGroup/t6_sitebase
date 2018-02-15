@@ -1,26 +1,46 @@
 <template>
-  <div>
-      <div class="row">
-        <div class="column">
-          <div class="card">
-            <div class="container">
-              <h2>{{name}}</h2>
-              <p class="title">CEO &amp; Founder</p>
-              <p>Some text that describes me lorem ipsum ipsum lorem.</p>
-              <p>example@example.com</p>
-              <p><button class="button">Contact</button></p>
-            </div>
-          </div>
+  <div class="col-md-6 card-deck">
+  <div class="card right align">
+    <h5 class="card-header">{{name}}</h5>
+    <div class="card-body">
+      <div class="card-text container">
+        <div class="col-md-6">
+          <p>image goes here</p>
+        </div>
+        <div class="col-md-6">
+
+          <p class="title">{{title}}</p>
+
+          <p>{{about}}</p>
+          <p>{{email}}</p>
         </div>
       </div>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
   </div>
+  </div>
+
 </template>
 
 <script>
 export default {
   name: 'TeamProfile',
-  props: ['name'],
+  props: ['name', 'about', 'title', 'email'],
+  methods: {
+    sendEmail: async function sendEmail() {
+      var data = this.$data.mgData
+      try  {
+        await this.axios.post('/send', data)
+      } catch (e) {
+        console.log(e, 'error')
+      }
+    }
+
+  },
   data () {
+
     return {
     }
   }
@@ -29,42 +49,24 @@ export default {
 
 <style>
 /* Three columns side by side */
-.column {
-    float: left;
-    width: 33.3%;
-    margin-bottom: 16px;
-    padding: 0 8px;
-}
-
-/* Display the columns below each other instead of side by side on small screens */
-@media (max-width: 650px) {
-    .column {
-        width: 100%;
-        display: block;
-    }
-}
-
-/* Add some shadows to create a card effect */
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-
-/* Some left and right padding inside the container */
 .container {
-    padding: 0 16px;
+  display: flex;
 }
-
-/* Clear floats */
-.container::after, .row::after {
-    content: "";
-    clear: both;
-    display: table;
+.name {
+  width: auto;
+  position: absolute;
+  height: inherit;
+  color: #D5D5D5;
+  padding-left: 10px
 }
-
-.title {
-    color: grey;
+.namebar {
+  background-color: #6D7993;
+  width: 100%;
+  height: inherit;
 }
-
+.card {
+  margin: 10px;
+}
 .button {
     border: none;
     outline: 0;

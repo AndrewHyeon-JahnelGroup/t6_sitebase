@@ -1,5 +1,5 @@
 <template>
-  <div class="frontpage">
+  <div class="col frontpage">
     <h1>{{ msg }}</h1>
     <p>{{ content }}</p>
     <div class = "loadercontainer">

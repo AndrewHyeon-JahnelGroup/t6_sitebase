@@ -14,6 +14,9 @@
     <div class="container">
       <router-view />
     </div>
+    <div>
+      <bottom-bar />
+    </div>
   </div>
 </template>
 
@@ -26,6 +29,7 @@ import OurTeam from './components/OurTeam'
 import ContactPage from './components/ContactPage'
 import EmailModal from './components/EmailModal'
 import TeamProfile from './components/TeamProfile'
+import BottomBar from './components/BottomBar'
 
 export default {
   name: 'App',
@@ -37,7 +41,8 @@ export default {
     OurTeam,
     ContactPage,
     EmailModal,
-    TeamProfile
+    TeamProfile,
+    BottomBar
   },
   data() {
     return {
