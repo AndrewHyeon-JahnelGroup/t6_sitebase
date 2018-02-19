@@ -1,30 +1,38 @@
+<!DOCTYPE html>
 <head>
   <!-- Plotly.js -->
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="./abIOpressures.js"></script>
+  <script src="./testingday1.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<style>
+
+</style>
 </head>
 
 <body>
+  <div class="row">
+    <div class="col" id="aside" cl1ass="ui-widget-content" style="resize:both;overflow:auto;border:1px"></div>
+    <div class="col" id="bside" class="ui-widget-content" style="resize:both;overflow:auto;border:1px"></div>
+    <div class="col" id="idle" class="ui-widget-content" style="resize:both;overflow:auto;border:1px"></div>
+    <div class="col" id="xducer" class="ui-widget-content" style="resize:both;overflow:auto;border:1px"></div>
+    <div class="col" id="therm" class="ui-widget-content" style="resize:both;overflow:auto;border:1px"></div>
+  </div>
   <p>Test type</p>
 
   <div>
-    <p>A/B I/O pressures</p>
+    <p>Metering pump</p>
     <input type='file' accept='text/plain' onchange='openFileType1(event)' value='text'><br>
   </div>
   <div>
-    <p>Therm+Xducer</p>
+    <p>Transfer pump</p>
+
     <input type='file' accept='text/plain' onchange='openFileType2(event)' value='text'><br>
 
   </div>
     <p>Manifold Temps</p>
     <input type='file' accept='text/plain' onchange='openFileType3(event)' value='text'><br>
 
-<div class="row">
-<div class="col" id="aside" style="resize:both;overflow:auto;"></div>
-<div class="col" id="bside" style="resize:both;overflow:auto;"></div>
-<div class="col" id="idle" style="resize:both;overflow:auto;"></div>
-<div class="col" id="therm" style="resize:both;overflow:auto;"></div>
-<div class="col" id="xducer" style="resize:both;overflow:auto;"></div>
-</div>
 </body>
 -
