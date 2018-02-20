@@ -25,11 +25,11 @@ var openFileType1 = function(event) {
     }
 
     //y axis data
-    // var AOut = parsed.map( x => x[0]/1000)
-    // var AIn = parsed.map( x => x[1]/1000)
+    var AOut = parsed.map( x => x[0])
+    var AIn = parsed.map( x => x[1])
     var BOut = parsed.map( x => x[2])
     var BIn = parsed.map( x => x[3])
-    // var IdleA = parsed.map( x => x[4]/1000)
+    var IdleA = parsed.map( x => x[4])
     var IdleB = parsed.map( x => x[5])
 
     //traces
